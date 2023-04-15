@@ -28,16 +28,7 @@ jobs:
   deploy_storybook:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Install and Build
-        run: |
-          yarn install
-          yarn run build-storybook
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.6.2
-        with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: storybook-static # output folder from `yarn run build-storybook`
+      - name: Deploy storybook to GitHub Pages
+        run: storybook-to-ghpages -- --ci
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

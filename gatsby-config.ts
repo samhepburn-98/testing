@@ -16,7 +16,7 @@ const gatsbyRequiredRules = path.join(
 );
 
 const config: GatsbyConfig = {
-    pathPrefix: "/raft-event-app/",
+    pathPrefix: "/testing/",
 
     siteMetadata: {
         title: "Raft Event App",
